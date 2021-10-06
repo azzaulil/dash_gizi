@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::group(['middleware' => ['auth:api']], function() {
+    Route::group(['middleware' => ['active_user','user'],'prefix' => 'user'], function() {
+        Route::get('/get-merchants', 'UserController@getMerchants');
+    });
+
+});
+
+Route::post('/'.config('crudbooster.ADMIN_PATH').'/register', 'Auth\AuthController@register');
+Route::group([ 'prefix' => 'auth'], function () {
+    Route::get('user/verify/{token}', 'Auth\AuthController@verifyUser')->name('verify');
+    Route::post('login', 'Auth\AuthController@login');
+    
+    
+    Route::group([ 'middleware' => 'auth:api'], function() {
+        Route::post('logout', 'Auth\AuthController@logout');
+        Route::get('user', 'Auth\AuthController@user');
+    });
 });
