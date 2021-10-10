@@ -44,9 +44,9 @@
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Food','name'=>'id_food','type'=>'select2','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Nutrition','name'=>'id_nutrition','type'=>'select2','validation'=>'required|min:1|max:255','width'=>'col-sm-10','datatable'=>'gizi_food,name'];
-			//$this->form[] = ['label'=>'Nilai nutrisi','name'=>'value','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'gizi_nutritions,name'];
+			//$this->form[] = ['label'=>'Makanan','name'=>'id_food','type'=>'select2','validation'=>'required|min:1|max:255','width'=>'col-sm-10','datatable'=>'gizi_food,name'];
+			//$this->form[] = ['label'=>'Nutrisi','name'=>'id_nutrition','type'=>'select2','validation'=>'required|min:1|max:255','width'=>'col-sm-10','datatable'=>'gizi_nutritions,name'];
+			//$this->form[] = ['label'=>'Nilai nutrisi','name'=>'value','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			# OLD END FORM
 
 			/* 
